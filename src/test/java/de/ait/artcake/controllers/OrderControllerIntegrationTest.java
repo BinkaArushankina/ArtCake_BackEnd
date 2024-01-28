@@ -49,7 +49,7 @@ public class OrderControllerIntegrationTest {
             String body = objectMapper.writeValueAsString(NewOrderDto.builder()
                     .clientWishes("Make in blue and white colours")
                     .count(1)
-                    .deadline("2023-10-10")
+                    .deadline("2025-10-10")
                     .build());
 
             mockMvc.perform(post("/api/orders/cakes/1")
@@ -62,8 +62,8 @@ public class OrderControllerIntegrationTest {
                     .andExpect(jsonPath("$.count", is(1)))
                     .andExpect(jsonPath("$.clientWishes", is("Make in blue and white colours")))
                     .andExpect(jsonPath("$.totalPrice", is(33.33)))
-                    .andExpect(jsonPath("$.creationDate", is("2023-09-07")))
-                    .andExpect(jsonPath("$.deadline", is("2023-10-10")))
+                    .andExpect(jsonPath("$.creationDate", is("2024-01-28")))
+                    .andExpect(jsonPath("$.deadline", is("2025-10-10")))
                     .andExpect(jsonPath("$.state", is("CREATED")));
         }
 
@@ -75,7 +75,7 @@ public class OrderControllerIntegrationTest {
             String body = objectMapper.writeValueAsString(NewOrderDto.builder()
                     .clientWishes("Make in blue and white colours")
                     .count(2)
-                    .deadline("2023-10-10")
+                    .deadline("2025-10-10")
                     .build());
 
             mockMvc.perform(post("/api/orders/cakes/1")
